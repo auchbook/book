@@ -1,42 +1,52 @@
 const textContainer = document.getElementById('text-container');
-const buttons = document.getElementById('buttons');
 const yesButton = document.getElementById('yes-button');
 const noButton = document.getElementById('no-button');
+const buttons = document.getElementById('button-container');
 
-// Função para mostrar texto letra por letra
-function typeWriter(text, i, fnCallback) {
-    if (i < text.length) {
-        textContainer.innerHTML += text.charAt(i);
-        setTimeout(() => typeWriter(text, i + 1, fnCallback), 50);
-    } else if (typeof fnCallback === 'function') {
-        setTimeout(fnCallback, 2000); // Espera 2 segundos antes de continuar
-    }
-}
-
-// Exibir as frases
-function startIntro() {
-    const texts = [
-        "Então você decidiu prosseguir e se aprofundar nesse mistério.",
-        "Mas devo te alertar que você está prestes a entrar na jornada mais emocionante da sua vida.",
-        "Deseja continuar?"
-    ];
-    
-    let i = 0;
-
-    function nextText() {
-        if (i < texts.length) {
-            textContainer.innerHTML = '';
-            typeWriter(texts[i], 0, nextText);
-            i++;
+// Função para escrever texto letra por letra
+function typeText(text, callback) {
+    let index = 0;
+    textContainer.innerHTML = '';
+    const typingInterval = setInterval(() => {
+        if (index < text.length) {
+            textContainer.innerHTML += text[index++];
         } else {
-            buttons.classList.remove('hidden');
+            clearInterval(typingInterval);
+            setTimeout(callback, 2000); // Esperar 2 segundos após terminar de escrever
         }
-    }
-
-    nextText();
+    }, 100); // Velocidade da digitação
 }
 
-// Eventos dos botões
+// Iniciar o texto inicial
+typeText("Então você decidiu prosseguir e se aprofundar nesse mistério.", () => {
+    typeText("Mas devo te alertar que você está prestes a entrar na jornada mais emocionante da sua vida.", () => {
+        typeText("Deseja continuar?", () => {
+            buttons.classList.remove('hidden'); // Mostrar botões após o texto
+        });
+    });
+});
+
+// Lidar com o botão "Não"
+noButton.addEventListener('click', () => {
+    const video = document.getElementById('background-video');
+    video.style.opacity = '0'; // Fazer vídeo desaparecer
+    buttons.classList.add('hidden'); // Esconder botões
+    setTimeout(() => {
+        textContainer.innerHTML = 'Entendemos seu receio, essa jornada não é para covardes.';
+        textContainer.style.fontSize = '2em'; // Ajustar tamanho da fonte
+        textContainer.style.position = 'absolute'; // Para centralizar a mensagem
+        textContainer.style.top = '50%'; // Centralizar verticalmente
+        textContainer.style.left = '50%'; // Centralizar horizontalmente
+        textContainer.style.transform = 'translate(-50%, -50%)'; // Ajuste para centralização
+        textContainer.style.zIndex = '1'; // Ficar acima do vídeo
+        setTimeout(() => {
+            textContainer.innerHTML = '';
+            document.body.style.backgroundColor = 'black'; // Mudar fundo para preto
+        }, 3000); // Mensagem fica por 3 segundos
+    }, 1000); // Espera 1 segundo até o vídeo sumir
+});
+
+// Lidar com o botão "Sim"
 yesButton.addEventListener('click', () => {
     buttons.classList.add('hidden'); // Esconder botões
     textContainer.innerHTML = '';
@@ -56,13 +66,18 @@ yesButton.addEventListener('click', () => {
                 document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
                 textContainer.innerHTML = 'Boa escolha!';
                 textContainer.style.fontSize = '3em'; // Aumentar o tamanho da fonte da mensagem
+                textContainer.style.position = 'absolute'; // Para centralizar a mensagem
+                textContainer.style.top = '50%'; // Centralizar verticalmente
+                textContainer.style.left = '50%'; // Centralizar horizontalmente
+                textContainer.style.transform = 'translate(-50%, -50%)'; // Ajuste para centralização
+                textContainer.style.zIndex = '1'; // Ficar acima do vídeo
                 setTimeout(() => {
                     textContainer.innerHTML = '';
                     // Piscar entre laranja e preto
                     let count = 0;
                     const blink = setInterval(() => {
                         document.body.style.backgroundColor = count % 2 === 0 ? '#DF6826' : 'black';
-                        count++;
+                        count++;contar++;
                         if (count === 6) { // 3 segundos de piscadas
                             clearInterval(blink);
                             window.location.href = 'inscricao.html'; // Redirecionar para a página de inscrição
@@ -74,24 +89,3 @@ yesButton.addEventListener('click', () => {
     };
     eraseText();
 });
-
-noButton.addEventListener('click', () => {
-    const video = document.getElementById('background-video');
-    video.style.transition = 'opacity 1s ease';
-    video.style.opacity = '0'; // Fazer o vídeo desaparecer
-    buttons.classList.add('hidden'); // Esconder botões
-
-    setTimeout(() => {
-        textContainer.innerHTML = ''; // Limpar textotextContainer.innerHTML = ''; // Limpar texto
-        document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
-        typeWriter("Entendemos seu receio, essa jornada não é para covardes.", 0, () => {
-            textContainer.innerHTML = ''; // Apagar o texto
-            setTimeout(() => {
-                document.body.style.backgroundColor = 'black'; // Manter fundo preto
-            }, 1000); // Esperar 1 segundo para a tela ficar preta
-        });
-    }, 1000); // Esperar 1 segundo até o vídeo desaparecer
-});
-
-// Iniciar a animação
-setTimeout(startIntro, 2000);

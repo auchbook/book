@@ -1,66 +1,49 @@
-body, html {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
     overflow: hidden;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-.video-container {
-    position: relative;
-    height: 100%;
+    font-family: 'Courier New', Courier, monospace; /* Fonte estilo máquina de escrever */
+    background-color: #DF6826; /* Cor de fundo padrão */
 }
 
 video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-}
-
-.overlay {
-    position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start; /* Mudado para alinhar ao topo */
-    color: #DF6826;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.text-container {
+    position: absolute;
+    top: 20%; /* Ajusta a posição do texto */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em; /* Tamanho da fonte */
     text-align: center;
-    padding-top: 50px; /* Adicionado espaçamento no topo */
+    z-index: 1; /* Fica acima do vídeo */
 }
 
-.text-center {
-    font-size: 3em; /* Aumentado para se sobressair mais */
-}
-
-.buttons {
-    margin-top: 20px;
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Fica acima do vídeo */
 }
 
 button {
-    background-color: #DF6826;
+    background-color: #DF6826; /* Cor dos botões */
     color: white;
-    border: none;
-    padding: 15px 30px; /* Aumentado para melhor visualização */
-    font-size: 1.5em; /* Aumentado para melhor visualização */
+    border: none;fronteira: nenhuma;border: none;fronteira: nenhuma;
+    padding: 10px 20px;
+    font-size: 1.5em;
     cursor: pointer;
-    margin: 5px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #BF4F1F;
+    margin: 10px;
 }
 
 .hidden {
-    display: none;
+    display: none; /* Classe para esconder elementos */
 }

@@ -8,7 +8,7 @@ function typeText(text, callback) {
     let index = 0;
     textContainer.innerHTML = '';
     const typingInterval = setInterval(() => {
-        if (index < text.length) {
+        if (index < text.length) {if (índice 
             textContainer.innerHTML += text[index++];
         } else {
             clearInterval(typingInterval);
@@ -77,7 +77,7 @@ yesButton.addEventListener('click', () => {
                     let count = 0;
                     const blink = setInterval(() => {
                         document.body.style.backgroundColor = count % 2 === 0 ? '#DF6826' : 'black';
-                        count++;contar++;
+                        count++;
                         if (count === 6) { // 3 segundos de piscadas
                             clearInterval(blink);
                             window.location.href = 'inscricao.html'; // Redirecionar para a página de inscrição

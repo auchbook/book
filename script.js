@@ -52,12 +52,23 @@ yesButton.addEventListener('click', () => {
             video.style.opacity = '0';
 
             setTimeout(() => {
+                // Tela preta antes de mostrar "Boa escolha!"
+                document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
                 textContainer.innerHTML = 'Boa escolha!';
                 textContainer.style.fontSize = '3em'; // Aumentar o tamanho da fonte da mensagem
                 setTimeout(() => {
                     textContainer.innerHTML = '';
-                    window.location.href = 'inscricao.html'; // Redirecionar para a página de inscrição
-                }, 3000);
+                    // Piscar entre laranja e preto
+                    let count = 0;
+                    const blink = setInterval(() => {
+                        document.body.style.backgroundColor = count % 2 === 0 ? '#DF6826' : 'black';
+                        count++;
+                        if (count === 6) { // 3 segundos de piscadas
+                            clearInterval(blink);
+                            window.location.href = 'inscricao.html'; // Redirecionar para a página de inscrição
+                        }
+                    }, 500);
+                }, 3000); // Esperar 3 segundos até a tela piscar
             }, 1000); // Esperar 1 segundo até o vídeo sumir
         }
     };
@@ -65,14 +76,21 @@ yesButton.addEventListener('click', () => {
 });
 
 noButton.addEventListener('click', () => {
-    textContainer.innerHTML = '';
-    document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
-    typeWriter("Entendemos seu receio, essa jornada não é para covardes.", 0, () => {
-        textContainer.innerHTML = ''; // Apagar o texto
-        setTimeout(() => {
-            document.body.style.backgroundColor = 'black'; // Manter fundo preto
-        }, 1000); // Esperar 1 segundo para a tela ficar preta
-    });
+    const video = document.getElementById('background-video');
+    video.style.transition = 'opacity 1s ease';
+    video.style.opacity = '0'; // Fazer o vídeo desaparecer
+    buttons.classList.add('hidden'); // Esconder botões
+
+    setTimeout(() => {
+        textContainer.innerHTML = ''; // Limpar textotextContainer.innerHTML = ''; // Limpar texto
+        document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
+        typeWriter("Entendemos seu receio, essa jornada não é para covardes.", 0, () => {
+            textContainer.innerHTML = ''; // Apagar o texto
+            setTimeout(() => {
+                document.body.style.backgroundColor = 'black'; // Manter fundo preto
+            }, 1000); // Esperar 1 segundo para a tela ficar preta
+        });
+    }, 1000); // Esperar 1 segundo até o vídeo desaparecer
 });
 
 // Iniciar a animação

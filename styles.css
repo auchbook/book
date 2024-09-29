@@ -36,8 +36,8 @@ video {
 
 button {
     background-color: #DF6826; /* Cor dos botões */
-    color: white;
-    border: none;fronteira: nenhuma;border: none;fronteira: nenhuma;
+    color: white;cor: branco;
+    border: none;
     padding: 10px 20px;
     font-size: 1.5em;
     cursor: pointer;

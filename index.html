@@ -7,19 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="overlay">
+        <button id="start-button">Clique aqui</button>
+    </div>
+    
     <video id="background-video" autoplay loop muted>
         <source src="video1.mp4" type="video/mp4">
         Seu navegador não suporta vídeo.
     </video>
-
-    <!-- Elemento de som -->
-    <audio id="background-audio" preload="auto">
-        <source src="Som1.mp3" type="audio/mpeg">
-        Seu navegador não suporta áudio.
-    </audio>
-
+    
     <div class="text-container" id="text-container"></div>
-
+    
     <div class="button-container hidden" id="button-container">
         <button id="yes-button">Sim</button>
         <button id="no-button">Não</button>

@@ -3,7 +3,38 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: 'Courier New', Courier, monospace;
-    background-color: #DF6826; /* Cor de fundo */
+    background-color: black; /* Cor de fundo inicial */
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+button {
+    background-color: #DF6826; /* Cor dos botões */
+    color: white;
+    border: none;
+    padding: 20px 40px; /* Aumentei o padding dos botões para ficarem maiores */
+    font-size: 1.5em;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+button:hover {
+    transform: scale(1.1); /* Expansão ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 video {
@@ -32,24 +63,6 @@ video {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
-}
-
-button {
-    background-color: #DF6826; /* Cor dos botões */
-    color: white;
-    border: none;
-    padding: 20px 40px; /* Aumentei o padding dos botões para ficarem maiores */
-    font-size: 1.5em;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 10px;
-    transition: all 0.3s ease;transição: todos os 0,3s facilitam;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra */
-}
-
-button:hover {
-    transform: scale(1.1); /* Expansão ao passar o mouse */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
 }
 
 .hidden {

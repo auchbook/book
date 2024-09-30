@@ -3,7 +3,7 @@ const yesButton = document.getElementById('yes-button');
 const noButton = document.getElementById('no-button');
 const buttons = document.getElementById('button-container');
 
-// Função para escrever texto letra por letra
+// Função para escrever o texto letra por letra
 function typeText(text, callback) {
     let index = 0;
     textContainer.innerHTML = '';
@@ -12,7 +12,7 @@ function typeText(text, callback) {
             textContainer.innerHTML += text[index++];
         } else {
             clearInterval(typingInterval);
-            setTimeout(callback, 2000); // Esperar 2 segundos após terminar de escrever
+            setTimeout(callback, 2000); // 2 segundos após o texto terminar
         }
     }, 100); // Velocidade da digitação
 }
@@ -21,36 +21,39 @@ function typeText(text, callback) {
 typeText("Então você decidiu prosseguir e se aprofundar nesse mistério.", () => {
     typeText("Mas devo te alertar que você está prestes a entrar na jornada mais emocionante da sua vida.", () => {
         typeText("Deseja continuar?", () => {
-            buttons.classList.remove('hidden'); // Mostrar botões após o texto
+            buttons.classList.remove('hidden'); // Mostrar os botões após o texto
         });
     });
 });
 
-// Lidar com o botão "Não"
+// Lidar com o clique no botão "Não"
 noButton.addEventListener('click', () => {
     const video = document.getElementById('background-video');
-    video.style.opacity = '0'; // Fazer vídeo desaparecer
-    buttons.classList.add('hidden'); // Esconder botões
+    video.style.opacity = '0'; // Fazer o vídeo desaparecer
+    buttons.classList.add('hidden'); // Esconder os botões
+    textContainer.innerHTML = ''; // Esvaziar o texto
+
     setTimeout(() => {
+        // Após 2 segundos, exibe o texto
         textContainer.innerHTML = 'Entendemos seu receio, essa jornada não é para covardes.';
-        textContainer.style.fontSize = '2em'; // Ajustar tamanho da fonte
-        textContainer.style.position = 'absolute'; // Para centralizar a mensagem
-        textContainer.style.top = '50%'; // Centralizar verticalmente
-        textContainer.style.left = '50%'; // Centralizar horizontalmente
-        textContainer.style.transform = 'translate(-50%, -50%)'; // Ajuste para centralização
-        textContainer.style.zIndex = '1'; // Ficar acima do vídeo
+        textContainer.style.fontSize = '3em'; // Ajuste para o tamanho maior
+        textContainer.style.position = 'absolute'; // Centraliza verticalmente
+        textContainer.style.top = '50%'; 
+        textContainer.style.left = '50%';
+        textContainer.style.transform = 'translate(-50%, -50%)';
+
         setTimeout(() => {
-            textContainer.innerHTML = '';
-            document.body.style.backgroundColor = 'black'; // Mudar fundo para preto
-        }, 3000); // Mensagem fica por 3 segundos
-    }, 1000); // Espera 1 segundo até o vídeo sumir
+            textContainer.innerHTML = ''; // Esvazia o texto após alguns segundos
+            document.body.style.backgroundColor = 'black'; // Deixa a tela preta
+        }, 4000); // 4 segundos de duração do texto na tela
+    }, 2000); // 2 segundos de espera antes de mostrar o texto
 });
 
-// Lidar com o botão "Sim"
+// Lidar com o clique no botão "Sim"
 yesButton.addEventListener('click', () => {
-    buttons.classList.add('hidden'); // Esconder botões
+    buttons.classList.add('hidden'); // Esconde os botões
     textContainer.innerHTML = '';
-    
+
     const eraseText = () => {
         if (textContainer.innerHTML.length > 0) {
             textContainer.innerHTML = textContainer.innerHTML.slice(0, -1);
@@ -63,27 +66,27 @@ yesButton.addEventListener('click', () => {
 
             setTimeout(() => {
                 // Tela preta antes de mostrar "Boa escolha!"
-                document.body.style.backgroundColor = 'black'; // Muda o fundo para preto
+                document.body.style.backgroundColor = 'black';
                 textContainer.innerHTML = 'Boa escolha!';
-                textContainer.style.fontSize = '3em'; // Aumentar o tamanho da fonte da mensagem
-                textContainer.style.position = 'absolute'; // Para centralizar a mensagem
-                textContainer.style.top = '50%'; // Centralizar verticalmente
-                textContainer.style.left = '50%'; // Centralizar horizontalmente
-                textContainer.style.transform = 'translate(-50%, -50%)'; // Ajuste para centralização
-                textContainer.style.zIndex = '1'; // Ficar acima do vídeo
+                textContainer.style.fontSize = '3em'; // Aumentar o tamanho da fonte
+                textContainer.style.position = 'absolute'; 
+                textContainer.style.top = '50%'; 
+                textContainer.style.left = '50%';
+                textContainer.style.transform = 'translate(-50%, -50%)';
+
                 setTimeout(() => {
                     textContainer.innerHTML = '';
                     // Piscar entre laranja e preto
                     let count = 0;
                     const blink = setInterval(() => {
                         document.body.style.backgroundColor = count % 2 === 0 ? '#DF6826' : 'black';
-                        count++;contar++;
-                        if (count === 6) { // 3 segundos de piscadas
+                        count++;
+                        if (count >= 10) { // Piscar durante 5 segundos
                             clearInterval(blink);
-                            window.location.href = 'inscricao.html'; // Redirecionar para a página de inscrição
+                            window.location.href = 'Inscrição/inscricao.html'; // Redirecionar para a página de inscrição
                         }
-                    }, 500);
-                }, 3000); // Esperar 3 segundos até a tela piscar
+                    }, 250); // Pisca mais rápido, 4 vezes por segundo
+                }, 3000); // Esperar 3 segundos até a tela começar a piscar
             }, 1000); // Esperar 1 segundo até o vídeo sumir
         }
     };

@@ -94,7 +94,7 @@ yesButton.addEventListener('click', () => {
                         count++;
                         if (count >= 10) { // Piscar durante 5 segundos
                             clearInterval(blink);
-                            window.location.href = 'Inscrição/inscricao.html'; // Redirecionar para a página de inscrição
+                            window.location.href = 'inscricao/inscricao.html'; // Redirecionar para a página de inscrição
                         }
                     }, 250); // Pisca mais rápido, 4 vezes por segundo
                 }, 3000); // Esperar 3 segundos até a tela começar a piscar

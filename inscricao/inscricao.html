@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="aba.png" type="image/png"> <!-- Ícone da aba do navegador -->
+    <title>AUCH</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="desire-pro-font.css"> <!-- Fonte personalizada -->
+</head>
+<body>
+    <div class="fundo">
+        <div class="black-square"></div> <!-- Quadrado preto adicionado -->
+        <div class="blur-box">
+            <!-- Seletor de imagem de perfil -->
+            <div class="profile-selector">
+                <button class="arrow" id="prev-arrow">&lt;</button> <!-- Seta para esquerda -->
+                <div class="profile-circle">
+                    <div class="orange-circle">
+                        <div class="black-circle">
+                            <img id="profile-image" src="perfil1.png" alt="Imagem de perfil">
+                        </div>
+                    </div>
+                </div>
+                <button class="arrow" id="next-arrow">&gt;</button> <!-- Seta para direita -->
+            </div>
+
+            <!-- Campos do formulário -->
+            <form id="registration-form">
+                <div class="form-field">
+                    <input type="text" id="nome" placeholder="Nome" required>
+                </div>
+                <div class="form-field">
+                    <input type="email" id="email" placeholder="E-mail" required>
+                    <span id="email-error" class="error"></span>
+                </div>
+                <div class="form-field">
+                    <input type="password" id="senha" placeholder="Senha" required>
+                </div>
+                <div class="form-field">
+                    <input type="password" id="confirm-senha" placeholder="Confirmação de senha" required>
+                    <span id="senha-error" class="error"></span>
+                </div>
+
+                <!-- Botão de confirmação -->
+                <button type="submit" class="confirm-button">Confirmar</button>
+
+                <!-- Link para login -->
+                <p class="login-text">Já possui uma conta? <a href="../login/login.html">Faça seu login aqui</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

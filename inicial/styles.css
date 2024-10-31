@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.background-overlay {
+    position: relative;
+    background: url('fundologin.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+}
+
+.background-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 1);
+    width: 100%;
+    height: 100px; /* Tamanho ajustado */
+    display: flex;
+    justify-content: space-between; /* Garante que logo e menu fiquem em lados opostos */
+    align-items: center;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10; /* Para garantir que o menu esteja sobre o carrossel */
+}
+
+.logo {
+    height: 60px; /* Altura da logo */
+    margin-left: 10px; /* Espaçamento extra à esquerda para não grudar */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20px;
+    cursor: pointer;
+    margin-right: 20px; /* Espaço à direita para separar da foto */
+}
+
+.menu-icon .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+}
+
+#profile-image {
+    height: 50px; /* Altura da foto de perfil */
+    width: 50px; /* Largura da foto de perfil */
+    border-radius: 50%; /* Deixa a imagem circular */
+    cursor: pointer; /* Para indicar que a imagem é clicável */
+    margin-left: 10px; /* Espaço entre o menu e a foto de perfil */
+}
+
+.menu-dropdown {
+    display: none; /* Inicialmente oculto */
+    position: absolute;
+    top: 60px; /* Ajusta para o espaço da foto de perfil */
+    right: 0; /* Alinha à direita */
+    background-color: black;
+    width: 150px;
+    z-index: 11; /* Para que fique acima de outros elementos */
+}
+
+.menu-dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.menu-dropdown a:hover {
+    background-color: #333;
+}
+
+#welcome-text {
+    text-align: center;
+    color: white;
+    font-size: 24px; /* Tamanho do texto de boas-vindas */
+    margin: 20px 0; /* Margem acima e abaixo do texto */
+    position: relative;
+    z-index: 10; /* Garantir que a saudação apareça sobre o fundo */
+}
+
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Tamanho fixo para o carrossel */
+    margin: 0 50px;
+    position: relative;
+    z-index: 9; /* Fica abaixo do menu e da saudação */
+}
+
+.carousel-inner {
+    width: 800px; /* Largura fixa para o contêiner */
+    height: 500px; /* Altura fixa */
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-image {
+    width: 800px; /* Largura fixa da imagem */
+    height: 500px; /* Altura fixa da imagem */
+    object-fit: cover;
+    position: absolute;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+}
+
+.carousel-image.active {
+    opacity: 1;
+}

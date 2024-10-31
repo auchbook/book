@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../aba.png" type="image/png">
+    <title>Playlist</title>
+</head>
+<body>
+    <div class="background-overlay">
+        <header>
+            <img src="../logohorizontal.png" alt="Logo" class="logo">
+            <div class="header-right">
+                <div class="menu-icon" onclick="toggleMainMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <img id="profile-image" src="" alt="Imagem de perfil" onclick="toggleProfileMenu()">
+                <div class="menu-dropdown" id="profileDropdown">
+                    <a href="../perfil">Perfil</a>
+                    <a href="../../login/login.html">Sair</a>
+                </div>
+            </div>
+        </header>
+        <div class="menu-dropdown" id="mainMenu" style="display: none;">
+            <a href="../progresso de leitura/progresso.html">Progresso de Leitura</a>
+            <a href="../comentarios/comentarios.html">Comentários</a>
+            <a href="../brindes online/brindes.html">Brindes Online</a>
+            <a href="../jogos/jogos.html">Jogos</a>
+            <a href="playlist.html">Playlist</a>
+            <a href="../caderno de anotações/caderno.html">Caderno de Anotações</a>
+            <a href="../carta de amor/carta.html">Carta de Amor</a>
+        </div>
+        <h2 id="welcome-text">Playlist</h2>
+
+        <div class="spotify-playlist" style="text-align: center;">
+            <iframe src="https://open.spotify.com/embed/playlist/0NfCep3zGEFuGIqklHwMiW?si=j-Y8MK0XQ-CqPUUmZwKtRw&pi=u-9JI-LHrLySzml&pt=d4013-ca479ac391e90329b6aab-b3894" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media; autoplay; clipboard-write"></iframe>
+        </div>
+
+        <script src="script.js"></script>
+    </div>
+</body>
+</html>

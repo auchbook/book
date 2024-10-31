@@ -11,7 +11,8 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
     // Verificando se o usuário existe
     const usuarioEncontrado = usuariosCadastrados.find(user => user.email === email);
     if (usuarioEncontrado && usuarioEncontrado.senha === senha) {
-        localStorage.setItem('emailLogado', email); // Armazena o e-mail do usuário logado
+        // Salva as informações do usuário logado no localStorage
+        localStorage.setItem('usuarioLogado', JSON.stringify(usuarioEncontrado));
         window.location.href = '../inicial/inicial.html'; // Redireciona para a página inicial
     } else {
         alert('E-mail ou senha incorretos!'); // Mensagem de erro

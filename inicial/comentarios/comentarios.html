@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="../aba.png" type="image/png"> <!-- Ícone da aba do navegador -->
+    <title>Comentários</title>
+</head>
+<body>
+    <div class="background-overlay">
+        <header>
+            <img src="../logohorizontal.png" alt="Logo" class="logo">
+            <div class="header-right">
+                <div class="menu-icon" onclick="toggleMainMenu()">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <img id="profile-image" src="" alt="Imagem de perfil" onclick="toggleProfileMenu()">
+                <div class="menu-dropdown" id="profileDropdown">
+                    <a href="../perfil/perfil.html">Perfil</a>
+                    <a href="../../login/login.html">Sair</a>
+                </div>
+            </div>
+        </header>
+        <div class="menu-dropdown" id="mainMenu" style="display: none;">
+            <a href="../progresso de leitura/progresso.html">Progresso de Leitura</a>
+            <a href="comentarios.html">Comentários</a>
+            <a href="../brindes online/brindes.html">Brindes Online</a>
+            <a href="../jogos/jogos.html">Jogos</a>
+            <a href="../playlist/playlist.html">Playlist</a>
+            <a href="../caderno de anotações/caderno.html">Caderno de Anotações</a>
+            <a href="../carta de amor/carta.html">Carta de Amor</a>
+        </div>
+        <h2 id="welcome-text">Comentários</h2>
+        <div class="progress-container" id="progressContainer">
+            <!-- Retângulos de comentários -->
+            <div class="progress-item" id="comentario1">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario2">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario3">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario4">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario5">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario6">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario7">Comentário bloqueado.</div>
+            <div class="progress-item" id="comentario8">Comentário bloqueado.</div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

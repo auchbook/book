@@ -67,6 +67,6 @@ form.addEventListener('submit', function(event) {
         localStorage.setItem('usuarios', JSON.stringify(usuariosCadastrados));
 
         alert('Usuário cadastrado com sucesso!'); // Mensagem de sucesso
-        window.location.href = '../Login/login.html'; // Redireciona para a página de login
+        window.location.href = '../login/login.html'; // Redireciona para a página de login
     }
 });
